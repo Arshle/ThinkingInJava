@@ -46,7 +46,23 @@ public class Philosopher implements Runnable {
     @Override
     public void run() {
         while(!Thread.interrupted()){
-            System.out.println(this + " " + "thinking");
+            try {
+                System.out.println(this + " " + "thinking");
+                pause();
+                System.out.println(this + " " + " grabbing right");
+                right.take();
+                System.out.println(this + " " + " eating");
+                pause();
+                right.drop();
+                left.drop();
+            } catch (InterruptedException e) {
+                System.out.println(this + " " + "exiting via interrupt");
+            }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Philosopher " + id;
     }
 }
