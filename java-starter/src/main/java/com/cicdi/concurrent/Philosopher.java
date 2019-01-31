@@ -49,9 +49,9 @@ public class Philosopher implements Runnable {
             try {
                 System.out.println(this + " " + "thinking");
                 pause();
-                System.out.println(this + " " + " grabbing right");
+                System.out.println(this + " " + "grabbing right");
                 right.take();
-                System.out.println(this + " " + " eating");
+                System.out.println(this + " " + "eating");
                 pause();
                 right.drop();
                 left.drop();
